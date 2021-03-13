@@ -1,5 +1,5 @@
 FROM debian:stable-slim
 
-RUN apt-get update && apt-get install -y ntp
+RUN apt-get update && apt-get install -y openntpd
 
-ENTRYPOINT ["ntpd","-n", "-c", "/etc/ntpd/ntp.conf"]
+ENTRYPOINT ["ntpd","-d", "-f", "/etc/ntpd/ntp.conf"]
